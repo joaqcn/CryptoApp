@@ -36,9 +36,11 @@ class HomeViewModel : ObservableObject {
             
             do {
                 let coins = try JSONDecoder().decode([Coin].self, from: data)
-                DispatchQueue.main.async {
-                    self.coins = coins
-                }
+                self.coins = coins
+                print("Coin: \(coins)")
+
+                
+                
             } catch let error {
                 print("Fail: \(error)")
             }
