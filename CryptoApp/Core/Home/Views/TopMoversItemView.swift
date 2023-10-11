@@ -15,9 +15,10 @@ struct TopMoversItemView: View {
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(.orange)
+                .padding(.bottom, 8)
             
             //Coin info
-            HStack{
+            HStack(spacing: 2){
                 Text("BTC")
                     .font(.caption)
                     .fontWeight(.bold)

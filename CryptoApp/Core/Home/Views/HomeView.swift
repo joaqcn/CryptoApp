@@ -14,6 +14,9 @@ struct HomeView: View {
             ScrollView(.vertical, showsIndicators: false){
                 
                 // Top movers
+                TopMoversView()
+                
+                Divider()
                 
                 //All coins
                 
