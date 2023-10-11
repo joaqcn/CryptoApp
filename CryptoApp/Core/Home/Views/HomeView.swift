@@ -19,6 +19,7 @@ struct HomeView: View {
                 Divider()
                 
                 //All coins
+                AllCoinsView()
                 
                 
             }
