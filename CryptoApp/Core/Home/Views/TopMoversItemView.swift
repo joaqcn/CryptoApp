@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TopMoversItemView: View {
+    let coin:Coin
     var body: some View {
         VStack(alignment: .leading){
             // Image
-            Image(systemName: "bitcoinsign.circle.fill")
+            KFImage(URL(string:coin.image))
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(.orange)
@@ -19,17 +21,17 @@ struct TopMoversItemView: View {
             
             //Coin info
             HStack(spacing: 2){
-                Text("BTC")
+                Text(coin.symbol.uppercased())
                     .font(.caption)
                     .fontWeight(.bold)
-                Text("$20,000.00")
+                Text(coin.currentPrice.toCurrency())
                     .font(.caption)
                     .foregroundColor(.gray)
             }
             // Coin percentage change
-            Text("+ 5.60%")
+            Text(coin.priceChangePercentage24H.toPercent())
                 .font(.title)
-                .foregroundStyle(.green)
+                .foregroundStyle(coin.priceChangePercentage24H > 0 ? .green : .red)
         }
         .frame(width: 140, height: 140)
         .overlay(RoundedRectangle(cornerRadius: 10)
@@ -38,6 +40,6 @@ struct TopMoversItemView: View {
     }
 }
 
-#Preview {
-    TopMoversItemView()
-}
+//#Preview {
+  //  TopMoversItemView()
+//}
